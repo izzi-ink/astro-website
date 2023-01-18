@@ -6,12 +6,12 @@ const hide = "cloaked";
 const response = await fetch(
 	"https://jsonplaceholder.typicode.com/users?_limit=10"
 );
-const user = await response.json();
-// const users = [
-// 	{ name: "Izzi", age: 25 },
-// 	{ name: "John", age: 30 },
-// 	{ name: "Jane", age: 35 },
-// ];
+// const user = await response.json();
+const users = [
+	{ name: "Izzi", age: 25 },
+	{ name: "John", age: 30 },
+	{ name: "Jane", age: 35 },
+];
 
 const visible = false;
 ---
@@ -20,7 +20,14 @@ const visible = false;
 <>
 	<h1 class={style}>Hello World! {name}</h1>
 	<ul>
-		{user.map((user) => <li>{user.name}</li>)}
+		<!-- Loop through the users array -->
+		{
+			users.map((user) => (
+				<li>
+					{user.name} is {user.age} years old
+				</li>
+			))
+		}
 	</ul>
 	<!-- If visible show the sentence -->
 	{visible && <p>You can see me, I am visible</p>}
