@@ -1,0 +1,34 @@
+---
+const name = "Izzi";
+const style = "purple";
+const users = [
+	{ name: "Izzi", age: 25 },
+	{ name: "John", age: 30 },
+	{ name: "Jane", age: 35 },
+];
+const visible = true;
+---
+
+<!-- Consider useing a fragment, as a wrapper <> </> -->
+<>
+	<h1 class={style}>Hello World! {name}</h1>
+	<ul>
+		{
+			users.map((user) => (
+				<li class={style}>
+					{user.name} is {user.age} years old
+				</li>
+			))
+		}
+	</ul>
+	{visible && <p>You can see me, I am visible</p>}
+</>
+<!-- Scoped Styling -->
+<style>
+	h1 {
+		color: red;
+	}
+	.purple {
+		color: purple;
+	}
+</style>
